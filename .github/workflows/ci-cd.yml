@@ -27,8 +27,8 @@ jobs:
         run: npm install
 
       # Run tests
-      - name: Run tests
-        # run: npm test
+      # - name: Run tests
+      # run: npm test
 
       # Build Docker image
       - name: Build Docker image
