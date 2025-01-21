@@ -5,5 +5,5 @@ const PORT = 3000;
 app.get("/", (req, res) => res.send("Hello, CI/CD Pipeline!"));
 
 app.listen(PORT, () =>
-  console.log(`Server running on http://localhost:${PORT}`)
+  console.log(`Server running on the http://localhost:${PORT}`)
 );
