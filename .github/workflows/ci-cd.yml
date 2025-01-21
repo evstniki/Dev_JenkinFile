@@ -1,0 +1,48 @@
+yourusername
+
+
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Run tests
+      - name: Run tests
+        run: npm test
+
+      # Build Docker image
+      - name: Build Docker image
+        run: docker build -t simple-ci-cd .
+
+      # Push Docker image to Docker Hub
+      - name: Push Docker image
+        env:
+          DOCKER_USER: ${{ secrets.yourusername }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin
+          docker tag simple-ci-cd $DOCKER_USER/simple-ci-cd:latest
+          docker push $DOCKER_USER/simple-ci-cd:latest
