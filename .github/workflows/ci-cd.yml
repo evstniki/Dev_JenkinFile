@@ -65,7 +65,7 @@ jobs:
         run: |
           echo "Running application..."
           # Add your custom run commands here
-          node server.js  # Replace 'server.js' with your entry point
+          node index.js  # Replace 'server.js' with your entry point
 
       # Step 4: Execute custom scripts
       - name: Execute custom script
