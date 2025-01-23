@@ -11,8 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-
       - name: Build Docker image
         run: |
           docker build -t ci-cd-pipeline-project .
@@ -20,9 +18,3 @@ jobs:
       - name: Test application
         run: |
           docker run --rm ci-cd-pipeline-project npm test
-
-      - name: Deploy to AWS S3
-        uses: aws-actions/artifact@v2
-        with:
-          name: deploy-artifact
-          path: .
