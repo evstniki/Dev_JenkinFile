@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - jenkins_WIP
   pull_request:
     branches:
       - main
