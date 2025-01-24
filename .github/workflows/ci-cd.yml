@@ -48,5 +48,8 @@ jobs:
         with:
           node-version: "16"
 
+      - name: Install dependencies (for tests)
+        run: npm install
+
       - name: Test application
-        run: npm test
+        run: npx jest
