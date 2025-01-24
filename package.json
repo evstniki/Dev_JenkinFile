@@ -6,9 +6,13 @@
   "scripts": {
     "start": "node index.js",
     "build": "echo 'Add your build command here'",
-    "test": "echo 'Error: no test specified' && exit 1"
+    "test": "jest"
   },
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
   }
 }
